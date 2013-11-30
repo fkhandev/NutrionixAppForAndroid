@@ -61,5 +61,7 @@
     <string name="QuerySearchTerm">Enter Search Query</string>
     <string name="LimitSearchResult">10</string>
     <string name="title_activity_item_details">ItemDetails</string>
+    <string name="brand_image"/>
+    <string name="total_items">Total Items</string>
 
 </resources>
