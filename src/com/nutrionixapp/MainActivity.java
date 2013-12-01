@@ -1,6 +1,5 @@
 package com.nutrionixapp;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -15,24 +14,39 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.nutrionixapp.models.NutritionixItemModel;
-import com.nutrionixapp.models.NutritionixModelResponse;
+import com.nutrionixapp.models.BrandListingItemModel;
+import com.nutrionixapp.models.feedmodel.NutritionixItemModel;
+import com.nutrionixapp.models.feedmodel.NutritionixModelResponse;
 
 public class MainActivity extends Activity implements AsyncResponse {
 
-	NutritionixTask o = new NutritionixTask("787d8f28","0ed54244c9ad321336729664d3117924");	
+	NutritionixTask nutritionixTask= null; 	
 	ListView searchResultsListView;
-	ArrayList<HashMap<String, String>> oslist = new ArrayList<HashMap<String, String>>();	
+	ArrayList<BrandListingItemModel> oslist = new ArrayList<BrandListingItemModel>();	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		o.delegate = this;
 
 		setContentView(R.layout.activity_main);
-	}
+		
+		searchResultsListView = (ListView)findViewById(R.id.listview);
+		
+		if(searchResultsListView != null)
+		{
+			searchResultsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+			  @Override
+			  public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+
+			    Object brand = searchResultsListView.getItemAtPosition(position);
+
+			    //Toast.makeText(MainActivity.this, "You Clicked at "+oslist.get(+position).get("Name"), Toast.LENGTH_SHORT).show();
+			  }
+			});
+
+		}
+	}
 
 	
 	@Override
@@ -45,14 +59,30 @@ public class MainActivity extends Activity implements AsyncResponse {
 	public void Search(View view)
 	{
 		EditText e = (EditText) findViewById(R.id.querytxt);
+		
 		String query = e.getText().toString();
-		o.SetContext(this);
-		o.SearchByBrand(query);
+		
+		if(query == null || query.equals(""))
+		{
+			Toast.makeText(MainActivity.this, "Please enter a search term", Toast.LENGTH_SHORT).show();
+			return;		
+		}
+
+		nutritionixTask = new NutritionixTask("787d8f28","0ed54244c9ad321336729664d3117924");
+		nutritionixTask.delegate = this;
+		nutritionixTask.SetContext(this);
+		nutritionixTask.SearchByBrand(query);
 	}
 
 	@Override
 	public void processFinish(NutritionixModelResponse result) {
-		// TODO Auto-generated method stub
+		
+		if(result == null)
+			return;
+	
+		if(oslist != null)
+			oslist.clear();
+		
 		for(int i =0; i< result.hits.length; i++)
 		{
 			NutritionixItemModel model = (NutritionixItemModel)result.hits[i];
@@ -60,39 +90,17 @@ public class MainActivity extends Activity implements AsyncResponse {
 			String name = model.getFields().name;
 			String website = model.getFields().website;
 			int total_items = model.getFields().total_items;
+			BrandListingItemModel brandItem = new BrandListingItemModel(name,website,total_items);
 			
-			
-			HashMap<String, String> map = new HashMap<String, String>();
-			map.put("Name", name);
-			map.put("Website", website);
-			map.put("Total Items", Integer.toString(total_items));			
-			
-			oslist.add(map);
-			
-			searchResultsListView = (ListView)findViewById(R.id.listview);
-			ListAdapter adapter = new SimpleAdapter(MainActivity.this, oslist,
-                    R.layout.search_results_lisitem,
-                    new String[] { "Name","Website", "Total Items"}, new int[] {
-                            R.id.name,R.id.website, R.id.totalitems});
+			oslist.add(brandItem);
 
-			searchResultsListView.setAdapter(adapter);
-			
-			searchResultsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-				  @Override
-				  public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-
-				    Object o = searchResultsListView.getItemAtPosition(position);
-				    /* write you handling code like...
-				    String st = "sdcard/";
-				    File f = new File(st+o.toString());
-				    // do whatever u want to do with 'f' File object
-				    */  
-				    Toast.makeText(MainActivity.this, "You Clicked at "+oslist.get(+position).get("Name"), Toast.LENGTH_SHORT).show();
-				  }
-				});
 		}
-
+		
+		ListAdapter adapter = new CustomListAdapter(this,
+                R.layout.search_results_lisitem, oslist);
+                	
+		searchResultsListView.setAdapter(adapter);
+		
 	}
 
 }

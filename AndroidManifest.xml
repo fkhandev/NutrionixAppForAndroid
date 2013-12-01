@@ -31,7 +31,10 @@
             android:name="com.nutrionixapp.ItemDetails"
             android:label="@string/title_activity_display_product_info" >
         </activity>
-    
+        <activity
+            android:name="com.nutrionixapp.ListBrandItemsAcitivity"
+            android:label="@string/title_activity_list_ibrand_items_acitivity" >
+        </activity>
     </application>
 
 </manifest>
