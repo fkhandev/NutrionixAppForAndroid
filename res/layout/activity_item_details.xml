@@ -1,356 +1,424 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"    
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:rowCount="21"
-    android:columnCount="2"
-    tools:context=".ItemDetailsActivity" >
-
-    	 <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_column="0"
-	        android:layout_row="0"
-	        android:text="Brand:" />
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools" 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+	<GridLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"    
+	    android:paddingBottom="@dimen/activity_vertical_margin"
+	    android:paddingLeft="@dimen/activity_horizontal_margin"
+	    android:paddingRight="@dimen/activity_horizontal_margin"
+	    android:paddingTop="@dimen/activity_vertical_margin"
+	    android:rowCount="21"
+	    android:columnCount="2"
+	    tools:context=".ItemDetailsActivity" >
 	
-	    <TextView
-	        android:id="@+id/brandname"
-	        android:layout_width="100dp"
-	        android:layout_height="wrap_content"
-	        android:labelFor="@+string/brand_name"
-	        android:layout_column="1"
-	        android:layout_row="0"
-	         />
-	
-	     <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="1"
-	         android:text="Item:" />
-	
-	    <TextView
-	        android:id="@+id/itemname"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="1"
-	        />
-     
-	    
-	     <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="2"
-	         android:text="Item Description:" />
-	
-	    <TextView
-	        android:id="@+id/itemdesc"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-			android:scrollHorizontally="false"
-			android:ellipsize="none"	        
-	        android:layout_column="1"
-	        android:layout_row="2"
-	        />
-
-	    
-	    <!--  nutrients  -->
-	     <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="3"
-	         android:text="Ingredient Statement:" />
-	
-	    <TextView
-	        android:id="@+id/nf_ingredient_statement"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-			android:scrollHorizontally="false"
-			android:ellipsize="none"        
-	        
-	        android:layout_column="1"
-	        android:layout_row="3"
-	        />
-
-	     <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="4"
-	         android:text="Calories" />
-	
-	    <TextView
-	        android:id="@+id/nf_calories"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="4"
-	        />	    	    	    	    	    
-	    
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="5"
-	         android:text="Calories from fat" />
-	
-	    <TextView
-	        android:id="@+id/nf_calories_from_fat"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="5"
-	        />	    	    	    	    	    
-	    
-			    
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="6"
-	         android:text="Total Fat" />
-	
-	    <TextView
-	        android:id="@+id/nf_total_fat"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="6"
-	        />	  
+	    	 <TextView
+	    	    style="@style/TextViewLabel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_row="0"		        
+		        android:text="@string/brand_name" />
 		
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="7"
-	         android:text="Saturated Fat" />
+		    <TextView
+		        android:id="@+id/brandname"
+		        android:layout_width="100dp"
+		        android:layout_height="wrap_content"
+		        android:labelFor="@+string/brand_name"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="0"
+		         />
+		
+		     <TextView
+		         style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="1"
+		         android:text="@string/item_" />
+		
+		    <TextView
+		        android:id="@+id/itemname"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="1"
+		        />
+	     
+		    
+		     <TextView
+		         style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"		         
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="2"
+		         android:text="@string/item_description_" />
+		
+		    <TextView
+		        android:id="@+id/itemdesc"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+				android:ellipsize="none"	        
+		        android:layout_row="2"
+		        />
 	
-	    <TextView
-	        android:id="@+id/nf_saturated_fat"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="7"
-	        />	  
-	    
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="8"
-	         android:text="Mono unsaturated Fat" />
+		    
+		    <!--  nutrients  -->
+		     <TextView
+		         style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="3"
+		         android:text="@string/ingredient_statement_" />
+		
+		    <TextView
+		        android:id="@+id/nf_ingredient_statement"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_gravity="fill_horizontal"
+		        android:layout_row="3"
+		        android:ellipsize="none"
+		        android:maxLines="50"
+		        android:singleLine="false"
+		        android:text="@string/nf_ingredient_statement" />
 	
-	    <TextView
-	        android:id="@+id/nf_monounsaturated_fat"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="8"
-	        />	  
-	        
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="9"
-	         android:text="Polyunsaturated Fat" />
+		     <TextView
+		         style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="4"
+		         android:text="@string/calories" />
+		
+		    <TextView
+		        android:id="@+id/nf_calories"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="4"
+		        />	    	    	    	    	    
+		    
+		    <TextView
+		         style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="5"
+		         android:text="@string/calories_from_fat" />
+		
+		    <TextView
+		        android:id="@+id/nf_calories_from_fat"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="5"
+		        />	    	    	    	    	    
+		    
+				    
+		    <TextView
+		         style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="6"
+		         android:text="@string/total_fat" />
+		
+		    <TextView
+		        android:id="@+id/nf_total_fat"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="6"
+		        />	  
+			
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="7"
+		         android:text="@string/saturated_fat" />
+		
+		    <TextView
+		        android:id="@+id/nf_saturated_fat"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="7"
+		        />	  
+		    
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="8"
+		         android:text="@string/mono_unsaturated_fat" />
+		
+		    <TextView
+		        android:id="@+id/nf_monounsaturated_fat"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="8"
+		        />	  
+		        
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="9"
+		         android:text="@string/polyunsaturated_fat" />
+		
+		    <TextView
+		        android:id="@+id/nf_polyunsaturated_fat"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="9"
+		        />	  
 	
-	    <TextView
-	        android:id="@+id/nf_polyunsaturated_fat"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="9"
-	        />	  
-
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="10"
-	         android:text="Trans fatty acid" />
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="10"
+		         android:text="@string/trans_fatty_acid" />
+		
+		    <TextView
+		        android:id="@+id/nf_trans_fatty_acid"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="10"
+		        />	 
+		        	    
+		    <TextView
+		         style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="11"
+		         android:text="@string/cholesterol_" />
+		
+		    <TextView
+		        android:id="@+id/nf_cholesterol"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="11"
+		        />	 
 	
-	    <TextView
-	        android:id="@+id/nf_trans_fatty_acid"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="10"
-	        />	 
-	        	    
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="11"
-	         android:text="cholesterol:" />
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="12"
+		         android:text="@string/sodium_" />
+		
+		    <TextView
+		        android:id="@+id/nf_sodium"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="12"
+		        />	 	    	    
 	
-	    <TextView
-	        android:id="@+id/nf_cholesterol"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="11"
-	        />	 
-
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="12"
-	         android:text="Sodium:" />
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="13"
+		         android:text="@string/total_carbohydrates" />
+		
+		    <TextView
+		        android:id="@+id/nf_total_carbohydrate"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="13"
+		        />	 	
 	
-	    <TextView
-	        android:id="@+id/nf_sodium"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="12"
-	        />	 	    	    
-
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="13"
-	         android:text="Total Carbohydrates" />
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="14"
+		         android:text="@string/dietary_fiber" />
+		
+		    <TextView
+		        android:id="@+id/nf_dietary_fiber"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="14"
+		        />
 	
-	    <TextView
-	        android:id="@+id/nf_total_carbohydrate"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="13"
-	        />	 	
-
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="14"
-	         android:text="Dietary Fiber" />
 	
-	    <TextView
-	        android:id="@+id/nf_dietary_fiber"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="14"
-	        />
-
-
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="15"
-	         android:text="Sugars" />
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="15"
+		         android:text="@string/sugars" />
+		
+		    <TextView
+		        android:id="@+id/nf_sugars"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="15"
+		        />
+		    
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="16"
+		         android:text="@string/proteins_" />
+		
+		    <TextView
+		        android:id="@+id/nf_protein"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="16"
+		        />
 	
-	    <TextView
-	        android:id="@+id/nf_sugars"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="15"
-	        />
-	    
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="16"
-	         android:text="Proteins:" />
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="17"
+		         android:text="@string/serving_per_container" />
+		
+		    <TextView
+		        android:id="@+id/nf_servings_per_container"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="17"
+		        />	    	    	    	    	    	    	    	        	    	            	    
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="18"
+		         android:text="@string/serving_size_quantity_" />
+		
+		    <TextView
+		        android:id="@+id/nf_serving_size_qty"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="18"
+		        />
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="19"
+		         android:text="@string/serving_size_per_unit_" />
+		
+		    <TextView
+		        android:id="@+id/nf_serving_size_unit"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="19"
+		        />
 	
-	    <TextView
-	        android:id="@+id/nf_protein"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="16"
-	        />
-
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="17"
-	         android:text="Serving per container" />
-	
-	    <TextView
-	        android:id="@+id/nf_servings_per_container"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="17"
-	        />	    	    	    	    	    	    	    	        	    	            	    
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="18"
-	         android:text="Serving Size Quantity:" />
-	
-	    <TextView
-	        android:id="@+id/nf_serving_size_qty"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="18"
-	        />
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="19"
-	         android:text="Serving size per unit:" />
-	
-	    <TextView
-	        android:id="@+id/nf_serving_size_unit"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="19"
-	        />
-
-	    <TextView
-	         android:layout_width="wrap_content"
-	         android:layout_height="wrap_content"
-	         android:layout_column="0"
-	         android:layout_gravity="left"
-	         android:layout_row="20"
-	         android:text="Serving weight in grams:" />
-	
-	    <TextView
-	        android:id="@+id/nf_serving_weight_grams"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_column="1"
-	        android:layout_row="20"
-	        />
-</GridLayout>
+		    <TextView
+		        style="@style/TextViewLabel"
+		         android:layout_width="wrap_content"
+		         android:layout_height="wrap_content"
+		         android:layout_column="0"
+		         android:layout_gravity="left"
+		         android:layout_row="20"
+		         android:text="@string/serving_weight_in_grams_" />
+		
+		    <TextView
+		        android:id="@+id/nf_serving_weight_grams"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_column="0"
+		        android:layout_columnSpan="1"
+		        android:layout_marginTop="20dp"
+		        android:layout_row="20"
+		        />
+	</GridLayout>
+</ScrollView>

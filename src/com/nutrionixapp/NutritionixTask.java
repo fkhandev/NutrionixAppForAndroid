@@ -12,14 +12,11 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-
-import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import com.nutrionixapp.models.feedmodel.NutritionixModelResponse;
+
 
 
 public class NutritionixTask extends AsyncTask<URL, Object, String> {
