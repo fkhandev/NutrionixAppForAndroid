@@ -2,8 +2,6 @@ package com.nutrionixapp.models.feedmodel;
 
 import java.io.Serializable;
 
-import com.google.gson.JsonObject;
-
 public class NutritionixItemModel implements Serializable {
 
 	/**
@@ -15,7 +13,6 @@ public class NutritionixItemModel implements Serializable {
 	private String _type;
 	private String _id;
 	private double _score;
-	//private  NutritionixSearchFieldsModel fields;
 	private NutritionixSearchFieldsModel fields;
 	
 	public String getIndex()

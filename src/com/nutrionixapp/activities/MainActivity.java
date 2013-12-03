@@ -1,9 +1,9 @@
-package com.nutrionixapp;
+package com.nutrionixapp.activities;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -11,9 +11,13 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.nutrionixapp.AsyncResponse;
+import com.nutrionixapp.NutritionixTask;
+import com.nutrionixapp.R;
+import com.nutrionixapp.adapters.BrandItemListAdapter;
 import com.nutrionixapp.models.BrandListingItemModel;
 import com.nutrionixapp.models.feedmodel.NutritionixItemModel;
 import com.nutrionixapp.models.feedmodel.NutritionixModelResponse;
@@ -39,12 +43,15 @@ public class MainActivity extends Activity implements AsyncResponse {
 			  @Override
 			  public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
 
-			    Object brand = searchResultsListView.getItemAtPosition(position);
+			    BrandListingItemModel selectedBrandItem = (BrandListingItemModel) searchResultsListView.getItemAtPosition(position);
 
+			    Intent intent = new Intent(MainActivity.this, ListBrandItemsActivity.class);
+			    intent.putExtra("BrandListingItemModel", selectedBrandItem);
+			    
+			    startActivity(intent);
 			    //Toast.makeText(MainActivity.this, "You Clicked at "+oslist.get(+position).get("Name"), Toast.LENGTH_SHORT).show();
 			  }
 			});
-
 		}
 	}
 
@@ -75,28 +82,34 @@ public class MainActivity extends Activity implements AsyncResponse {
 	}
 
 	@Override
-	public void processFinish(NutritionixModelResponse result) {
+	public void processFinish(String responseString) {
 		
-		if(result == null)
+		if(responseString == null)
 			return;
 	
 		if(oslist != null)
 			oslist.clear();
 		
+		Gson gson = new Gson();		
+		NutritionixModelResponse result = gson.fromJson(responseString, NutritionixModelResponse.class);
+		if(result == null)
+			return;
+		
 		for(int i =0; i< result.hits.length; i++)
 		{
 			NutritionixItemModel model = (NutritionixItemModel)result.hits[i];
 			
+			String brandid = model.getID();
 			String name = model.getFields().name;
 			String website = model.getFields().website;
 			int total_items = model.getFields().total_items;
-			BrandListingItemModel brandItem = new BrandListingItemModel(name,website,total_items);
+			BrandListingItemModel brandItem = new BrandListingItemModel(brandid,name,website,total_items);
 			
 			oslist.add(brandItem);
 
 		}
 		
-		ListAdapter adapter = new CustomListAdapter(this,
+		ListAdapter adapter = new BrandItemListAdapter(this,
                 R.layout.search_results_lisitem, oslist);
                 	
 		searchResultsListView.setAdapter(adapter);

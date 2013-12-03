@@ -1,5 +1,4 @@
-package com.nutrionixapp;
-
+package com.nutrionixapp.adapters;
 
 import java.util.ArrayList;
 
@@ -11,16 +10,18 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.nutrionixapp.models.BrandListingItemModel;
+import com.nutrionixapp.R;
+import com.nutrionixapp.models.ItemModel;
 
-public class CustomListAdapter extends ArrayAdapter<BrandListingItemModel> {
+
+public class ItemListAdapter extends ArrayAdapter<ItemModel> {
 
     Context mContext;
     int layoutResourceId;
-    ArrayList<BrandListingItemModel> data = null;
+    ArrayList<ItemModel> data = null;
     
-	public CustomListAdapter(Context context, int resource,
-			ArrayList<BrandListingItemModel> oslist) {
+	public ItemListAdapter(Context context, int resource,
+			ArrayList<ItemModel> oslist) {
 		super(context, resource, oslist);
 		this.mContext = context;
 		this.layoutResourceId = resource;
@@ -38,17 +39,17 @@ public class CustomListAdapter extends ArrayAdapter<BrandListingItemModel> {
         }
 
         // object item based on the position
-		BrandListingItemModel brandItem = data.get(position);
+		ItemModel item = data.get(position);
 
         // get the TextView and then set the text (item name) and tag (item ID) values
-        TextView brandname = (TextView) convertView.findViewById(R.id.name);
-        brandname.setText(brandItem.getBrandname());
+        TextView brandname = (TextView) convertView.findViewById(R.id.brandname);
+        brandname.setText(item.getBrandname());
         
-        TextView website = (TextView) convertView.findViewById(R.id.website);
-        website.setText(brandItem.getWebsite());
+        TextView itemname = (TextView) convertView.findViewById(R.id.itemname);
+        itemname.setText(item.getItemname());
         
-        TextView totalitems = (TextView) convertView.findViewById(R.id.totalitems);
-        totalitems.setText(Integer.toString(brandItem.getTotalItems()));
+        TextView itemid = (TextView) convertView.findViewById(R.id.itemid);
+        itemid.setText(item.getItemid());
         
         return convertView;
 	}

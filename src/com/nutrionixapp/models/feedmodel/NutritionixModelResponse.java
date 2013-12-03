@@ -1,7 +1,6 @@
 package com.nutrionixapp.models.feedmodel;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class NutritionixModelResponse  implements Serializable {
 

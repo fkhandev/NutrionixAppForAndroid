@@ -43,9 +43,9 @@ public class NutritionixSearchFieldsModel implements Serializable {
 	public String nf_iron_dv;
 	public String nf_refuse_pct;
 	public String nf_servings_per_container;
-	public int nf_serving_size_qty;
+	public String nf_serving_size_qty;
 	public String nf_serving_size_unit;
-	public int nf_serving_weight_grams;
+	public String nf_serving_weight_grams;
 	public boolean allergen_contains_milk;
 	public boolean allergen_contains_eggs;
 	public boolean allergen_contains_fish;

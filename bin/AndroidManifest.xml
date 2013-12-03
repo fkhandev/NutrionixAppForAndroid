@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.nutrionixapp.MainActivity"
+            android:name="com.nutrionixapp.activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,10 +28,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.nutrionixapp.ItemDetails"
-            android:label="@string/title_activity_display_product_info" >
+            android:name="com.nutrionixapp.activities.ItemDetailsActivity"
+            android:label="@string/title_activity_item_details" >
         </activity>
-    
+        <activity
+            android:name="com.nutrionixapp.activities.ListBrandItemsActivity"
+            android:label="@string/title_activity_list_brand_items_acitivity" >
+        </activity>
     </application>
 
 </manifest>

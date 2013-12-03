@@ -22,13 +22,17 @@ import com.google.gson.JsonSyntaxException;
 import com.nutrionixapp.models.feedmodel.NutritionixModelResponse;
 
 
-public class NutritionixTask extends AsyncTask<URL, Object, NutritionixModelResponse> {
+public class NutritionixTask extends AsyncTask<URL, Object, String> {
 
 	private String APPID;
 	private String APPKEY;	
 	private Context context;
 	private static ProgressDialog dialog = null;
 	public AsyncResponse delegate = null;
+	
+	public enum NutritionixTaskType {
+	    SEARCHBYBRAND,SEARCHBRANDID,SEARCHBYITEMID
+	}
 	
 	public NutritionixTask(String APPID, String APPKEY)
 	{
@@ -64,7 +68,22 @@ public class NutritionixTask extends AsyncTask<URL, Object, NutritionixModelResp
 		//https://api.nutritionix.com/v1_1/search/?brand_id=51db37be176fe9790a898f46&fields=*&appId=787d8f28&appKey=0ed54244c9ad321336729664d3117924
 		
 		String url = "https://api.nutritionix.com/v1_1/search/?brand_id=%s&appId=%s&appKey=%s&auto=true";
-		url = String.format(url, brandID);
+		url = String.format(url,brandID,APPID,APPKEY);
+		try {
+			this.execute(new URL(url));
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void SearchByItemID(String itemID)
+	{
+		//https://api.nutritionix.com/v1_1/search/?brand_id=51db37be176fe9790a898f46&fields=*&appId=787d8f28&appKey=0ed54244c9ad321336729664d3117924
+		// https://api.nutritionix.com/v1_1/item?id=513fc991927da70408000274&appId=787d8f28&appKey=0ed54244c9ad321336729664d3117924"
+		
+		String url = "https://api.nutritionix.com/v1_1/item?id=%s&appId=%s&appKey=%s&auto=true";
+		url = String.format(url,itemID,APPID,APPKEY);
 		try {
 			this.execute(new URL(url));
 		} catch (MalformedURLException e) {
@@ -79,11 +98,11 @@ public class NutritionixTask extends AsyncTask<URL, Object, NutritionixModelResp
 	 }
 	 
 	@Override
-	protected NutritionixModelResponse doInBackground(URL...urls) {
+	protected String doInBackground(URL...urls) {
 		// TODO Auto-generated method stub
 		String serverUrl = urls[0].toString();
 
-		NutritionixModelResponse result = null;
+		String result = null;
 		
 		HttpClient httpclient = new DefaultHttpClient();
 	    HttpResponse response;
@@ -97,8 +116,9 @@ public class NutritionixTask extends AsyncTask<URL, Object, NutritionixModelResp
 		        String responseString = out.toString();
 		        
 			    try{
-			    	Gson gson = new Gson();
-			    	result = gson.fromJson(responseString, NutritionixModelResponse.class);
+			    	
+			    	//result = gson.fromJson(responseString, NutritionixModelResponse.class);
+			    	result = responseString;
 			    }
 			    catch(JsonSyntaxException e)
 			    {
@@ -122,7 +142,7 @@ public class NutritionixTask extends AsyncTask<URL, Object, NutritionixModelResp
 	}
 	
 	@Override
-	protected void onPostExecute(NutritionixModelResponse result) {
+	protected void onPostExecute(String result) {
 		
 		if (dialog!=null && dialog.isShowing()) {
             dialog.dismiss();
