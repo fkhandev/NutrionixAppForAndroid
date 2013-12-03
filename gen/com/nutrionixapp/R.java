@@ -21,7 +21,8 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int attribution_nutrionix=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
         public static final int action_settings=0x7f08001e;
@@ -87,11 +88,19 @@ public final class R {
         public static final int brand_id=0x7f050009;
         public static final int brand_image=0x7f05003a;
         public static final int brand_name=0x7f050004;
+        public static final int calories=0x7f050040;
+        public static final int calories_from_fat=0x7f050041;
+        public static final int cholesterol_=0x7f050047;
+        public static final int dietary_fiber=0x7f05004a;
         public static final int hello_world=0x7f050002;
+        public static final int ingredient_statement_=0x7f05003f;
+        public static final int item_=0x7f05003d;
         public static final int item_description=0x7f05000d;
+        public static final int item_description_=0x7f05003e;
         public static final int item_id=0x7f05000a;
         public static final int item_name=0x7f050008;
         public static final int item_type=0x7f05000c;
+        public static final int mono_unsaturated_fat=0x7f050044;
         public static final int name=0x7f050005;
         public static final int nf_calcium_dv=0x7f050022;
         public static final int nf_calcium_mg=0x7f050021;
@@ -121,16 +130,30 @@ public final class R {
         public static final int nf_vitamin_c_dv=0x7f050020;
         public static final int nf_vitamin_c_mg=0x7f05001f;
         public static final int nf_water_grams=0x7f05000f;
+        public static final int polyunsaturated_fat=0x7f050045;
+        public static final int proteins_=0x7f05004c;
+        public static final int saturated_fat=0x7f050043;
+        public static final int serving_per_container=0x7f05004d;
+        public static final int serving_size_per_unit_=0x7f05004f;
+        public static final int serving_size_quantity_=0x7f05004e;
+        public static final int serving_weight_in_grams_=0x7f050050;
+        public static final int sodium_=0x7f050048;
+        public static final int sugars=0x7f05004b;
         public static final int title_activity_brandsearch=0x7f050033;
         public static final int title_activity_item_details=0x7f050003;
         public static final int title_activity_list_brand_items_acitivity=0x7f05003c;
         public static final int title_section1=0x7f050034;
         public static final int title_section2=0x7f050035;
         public static final int title_section3=0x7f050036;
+        public static final int total_carbohydrates=0x7f050049;
+        public static final int total_fat=0x7f050042;
         public static final int total_items=0x7f05003b;
+        public static final int total_items_=0x7f050052;
+        public static final int trans_fatty_acid=0x7f050046;
         public static final int type=0x7f050007;
         public static final int upc=0x7f05000b;
         public static final int website=0x7f050006;
+        public static final int website_=0x7f050051;
     }
     public static final class style {
         /** 
@@ -159,5 +182,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f060001;
+        public static final int TextViewLabel=0x7f060002;
     }
 }
